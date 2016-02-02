@@ -1,0 +1,131 @@
+<html>
+
+<head>
+
+<%= stylesheet_link_tag "game.css" %>
+
+
+<script>
+  $(document).ready(function() {
+ 
+    $(".tab_content").hide();
+    $("ul.tabs li:first").addClass("active").show();
+    $(".tab_content:first").show();
+    $("ul.tabs li").click(function() {
+ 
+      $("ul.tabs li").removeClass("active"); 
+      $(this).addClass("active");
+      $(".tab_content").hide(); 
+      var activeTab = $(this).find("a").attr("href");
+      $(activeTab).fadeIn();
+      return false;
+    });
+  });
+</script>
+</head>
+
+<body>
+  <div id="drag">
+    <div class ="main">
+      <div class ="player">
+        <%= image_tag("../images/logo.png", :alt => "Celtia", :size => "150x70") %>
+          </br>
+        <%= image_tag("../images/Turn_red.png", :alt => "Celtia", :size => "120x120") %>
+          <table id="chess_board1" cellpadding="0" cellspacing="0" width="150">
+                <tr>
+                  <td class="mark" colspan="2"><h1>Reincarnation</h1></td>
+                <tr>
+                  <td class="mark">Bansidh</td>
+                  <td class="mark"><div class="drag clone"><%= image_tag("red/Bansidh.png", :alt => "Red Bansidh", :size => "30x30") %></td>
+                </tr>
+                <tr>
+                  <td class="mark">Champion</td>
+                  <td class="mark"><div class="drag clone"><%= image_tag("red/champion.png", :alt => "Red Champion", :size => "30x30") %></td>
+                </tr>
+                <tr>
+                  <td class="mark">Diagonal</td>
+                  <td class="mark"><div class="drag clone"><%= image_tag("red/diagonal.png", :alt => "Red Diagonal", :size => "30x30") %></td>
+                </tr>
+                <tr>
+                  <td class="mark">Leaping</td>
+                  <td class="mark"><div class="drag clone"><%= image_tag("red/leaping.png", :alt => "Red Leaping", :size => "30x30") %></td>
+                </tr>
+                <tr>
+                  <td class="mark">Square</td>
+                  <td class="mark"><div class="drag clone"><%= image_tag("red/square.png", :alt => "Red Square", :size => "30x30") %></td>
+                </tr>
+                <tr>
+                  <td class="mark">Clansman</td>
+                  <td class="mark"><div class="drag clone"><%= image_tag("red/clansman.png", :alt => "Red Clansman", :size => "30x30") %></td>
+                </tr>
+              </table>
+
+        <br/>
+    
+          <table id="chess_board1" cellpadding="0" cellspacing="0" width="150">
+                  <tr>
+                    <td class="mark"><h1>Time</h1></td>
+                  </tr>
+                  <tr>
+                    <td class="mark"><h2>0:30TBC</h2></td>
+                  </tr>
+          </table>
+        
+        <br/>
+
+          <div id ="shadow">
+            <%= link_to image_tag("../images/shadow.jpg", :alt => "ShadowLand Games", :size => "120x120"), "http://www.seannaiche.com" %>
+          </div>
+        </div>
+
+        <div class ="boardcentral">
+        <%= render partial: "games/board" %>
+        <div class ="spellscont">
+
+          <div class="spellleft"><h1>Spells</h1>
+          </div>
+
+          <div class="spellright">
+
+            <ul class="tabs">
+                <li><a href="#tab1">Red</a></li>
+                <li><a href="#tab2">White</a></li>    
+                <li><a href="#tab3">Green</a></li>
+                  <li><a href="#tab4">Black</a></li>
+              </ul>
+
+              <div class="tab_container">
+        
+                <div id="tab1" class="tab_content">
+                  <%= render partial: "games/redspells" %>
+                </div>
+
+                <div id="tab2" class="tab_content">
+                  <%= render partial: "games/whitespells" %>
+                </div>
+        
+                <div id="tab3" class="tab_content">
+                  <%= render partial: "games/greenspells" %>
+                </div>
+        
+                <div id="tab4" class="tab_content">
+                  <%= render partial: "games/blackspells" %>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class ="playerright">
+          <%= render partial: "games/playright" %>
+        </div>
+
+        <br/>
+        
+  </div>
+</body>
+</html>
+
+
+

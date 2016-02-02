@@ -1,0 +1,146 @@
+<html>
+
+<head>
+
+<script>
+	$(document).ready(function() {
+ 
+ 		$(".tab_content").hide();
+ 		$("ul.tabs li:first").addClass("active").show();
+ 		$(".tab_content:first").show();
+ 		$("ul.tabs li").click(function() {
+ 
+  		$("ul.tabs li").removeClass("active"); 
+  		$(this).addClass("active");
+  		$(".tab_content").hide(); 
+  		var activeTab = $(this).find("a").attr("href");
+  		$(activeTab).fadeIn();
+  		return false;
+ 		});
+ 	});
+ 	
+  $(function() {
+$( document ).tooltip();
+});
+ 	
+</script>
+</head>
+
+<body>
+	
+
+
+
+	<div id="drag">
+		<div class ="main">
+			<div class ="player">
+				<%= image_tag("../images/logo.png", :alt => "Celtia", :size => "150x70", :id => "turndicator2") %>
+				  <br/>
+                <div class ="player2"><%= image_tag("../images/Turn_black.png", :alt => "Celtia", :size => "120x120", :id => "turn_indicator") %>
+
+</div> 
+  				<br/>
+        
+        
+        <table id="centresquare" width="150">
+        <td id ="_16_16" class="drag" style ="background-image: url(<%= asset_path 'spells/cauldron.png' %>); background-size: 40px 40px; background-repeat: no-repeat;"><div></div></td>
+        </table>
+   
+
+				<br/>
+  	
+  				<table id="chess_board1" cellpadding="0" cellspacing="0" width="150">
+            			<tr>
+							
+            				<td class="mark"><h1>Players</h1></td>
+            			</tr>
+            			<tr>
+            				<td class="mark" id="red_td"><h2>Red: <%= @game.red %></h2></td>
+            			</tr>
+                  <tr>
+            				<td class="mark" id="white_td"><h2>White: <%= @game.white %></h2></td>
+            			</tr>
+                  <tr>
+            				<td class="mark" id="green_td"><h2>Green: <%= @game.green %></h2></td>
+            			</tr>
+                  <tr>
+            				<td class="mark" id="black_td"><h2>Black: <%= @game.black %></h2></td>
+            			</tr>
+ 				  </table>
+ 				
+ 				<br/>
+				<% if @game.black.nil? %>
+					<%= link_to "Play as black", {:controller => :games, :action => :play_as_black, :id => @game.id},
+          :method => :put, 
+          :confirm => "Are you sure?" %>
+				<% else %>
+				 <h3>Black: <%= @game.black %></h3>
+				<% end %>
+				
+			  <% if @game.red.nil? %>
+			  <% side_finder(@game.id.to_s,"player0") %>
+				<%= link_to "Play as red",  {:controller => :games, :action => :play_as_red, :id => @game.id},
+		  :method => :put, 
+          :confirm => "Are you sure?"
+          
+          %>
+     
+				<% else %>
+				 <h3>Red: <%= @game.red %></h3>
+				<% end %>
+				<% if @game.white.nil? %>
+				<%= link_to "Play as white", {:controller => :games, :action => :play_as_white, :id => @game.id},
+          :method => :put, 
+          :confirm => "Are you sure?" %>
+				<% else %>
+				 <h3>White: <%= @game.white %></h3>
+				<% end %>
+				<% if @game.green.nil? %>
+				<%= link_to "Play as green", {:controller => :games, :action => :play_as_green, :id => @game.id},
+          :method => :put, 
+          :confirm => "Are you sure?" %>
+				<% else %>
+				 <h3>Green: <%= @game.green %></h3>
+				<% end %>
+
+          <%= link_to image_tag("../images/shadow.jpg", :alt => "ShadowLand Games", :size => "120x120"), "http://www.seannaiche.com" %>
+
+				</div>
+
+        <div class ="boardcentral">
+				<%= render partial: "games/board" %>
+        <div class ="spellscont">
+			<table>
+				
+				<th>Spells</th>
+			<tr>	
+			<td><button id="shapeshift_button" title="Shapeshift" onclick="shapeshift()"></button></td>        
+            <td><button id="possession_button" title="Possession" onclick="possession()"></button></td>
+            <td><button id="flight_button" title="Flight" onclick="flight()"></button></td>
+            <td><button id="freeze_button" title="Dagda's Harp" onclick=select_freeze()></button></td>
+            <td><button id="bolt_button" title="Dagda's Club (Kill)" onclick=select_zap()></button></td>
+            <td><button id="bolt_button_res" title="Dagda's Club (Resurrect)" onclick="resurrect_window()"></button></td>
+            <td><button id="mist_button" title="Mist" onclick="select_mist()" ></button></td>
+            <td><button id="hammer_button" title="Spellhammer (disabled)"></button></td>
+            <td><button id="shield_button" title="Shield" onclick="select_shield()"></button></td>
+            </tr>
+            
+            </table>
+        </div>
+        </div>
+
+        <div class ="playerright">
+          <%= render partial: "games/playright" %>
+        </div>
+
+        <br/>
+				
+	</div>
+  
+<div id="promotion_window" title="Choose a piece to promote to">
+</div>
+</body>
+</html>
+
+
+

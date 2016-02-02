@@ -1,0 +1,63 @@
+<h1 id="games_table"> Listing current two player games </h1>
+<table id="games_table" align="center">
+  <tr>
+    <th>Id</th>
+    <th>Red</th>
+    <th>Green</th>
+    <th></th>
+  </tr>
+
+<% @games2.each do |game| %>
+  <tr>
+    <td><%= game.id %></td>
+    <td><%= game.red %></td>
+    <td><%= game.green %></td>
+    <td><%= link_to 'Show', game %></td>
+  </tr>
+<% end %>
+</table>
+<h1> Listing current three player games </h1>
+<table id="games_table" align="center">
+  <tr>
+    <th>Id</th>
+    <th>Red</th>
+    <th>White</th>
+    <th>Green</th>
+    <th></th>
+  </tr>
+
+<% @games3.each do |game| %>
+  <tr>
+    <td><%= game.id %></td>
+    <td><%= game.red %></td>
+    <td><%= game.white %></td>
+    <td><%= game.green %></td>
+    <td><%= link_to 'Show', game %></td>
+  </tr>
+<% end %>
+</table>
+
+<h1> Listing current four player games </h1>
+<table id="games_table" align="center">
+  <tr>
+    <th>Id</th>
+    <th>Red</th>
+    <th>White</th>
+    <th>Green</th>
+    <th>Black</th>
+    <th></th>
+  </tr>
+
+<% @games.each do |game| %>
+  <tr>
+    <td><%= game.id %></td>
+    <td><%= game.red %></td>
+    <td><%= game.white %></td>
+    <td><%= game.green %></td>
+    <td><%= game.black %></td>
+    <td><%= link_to 'Show', game %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />

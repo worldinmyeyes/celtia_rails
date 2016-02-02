@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Celtia</title>
+  <%= include_gon(:watch => true) %>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<% flash.each do |name, msg| -%>
+      <%= content_tag :div, msg, class: name %>
+    <% end -%>
+<div class="header">
+<%= link_to "Home", root_path %>
+ 
+<div id="user_header">
+ <% if current_player %>
+    Logged in as <%= current_player.email %>.
+     <%= link_to "Log Out", session_path("current"), method: "delete" %>
+  <% else %>
+    <%= link_to "Sign Up", new_player_path %> or
+    <%= link_to "Log In", new_session_path %>
+   <% end %>
+</div>
+</div>
+<%= yield %>
+<div class="footer">
+</div>
+</body>
+</html>

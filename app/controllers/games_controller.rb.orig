@@ -1,0 +1,72 @@
+class GamesController < ApplicationController
+
+  def show
+    @game_id = params[:game_id]
+
+    @game = Game.find_by_game_token(params[:id])
+
+    respond_to do |format|
+       format.html
+       format.json { render json: @game }
+    end
+  end
+
+  def create
+    require "net/http"
+    require "uri"
+
+    proxy_addr = 'px.abdn.ac.uk'
+    proxy_port = 8080
+
+    @game = Game.create
+    redirect_to game_blacks_path(@game)
+
+    game = Game.find_by_game_token(params[:id])
+
+    uri = URI.parse("http://celtia-rules-engine.herokuapp.com/")
+
+<<<<<<< HEAD
+    http = Net::HTTP.new(uri.host, uri.port, proxy_addr, proxy_port)
+    #http = Net::HTTP.new(uri.host, uri.port)
+
+
+    response = http.post(uri.request_uri, "message=new #{@game.game_token}")
+    #response.basic_auth("celtia_admin01", "UoACSD1164")
+=======
+    #http = Net::HTTP.new(uri.host, uri.port, proxy_addr, proxy_port)
+    http = Net::HTTP.new(uri.host, uri.port)
+
+    response = http.post(uri.request_uri, "message=new #{params[:id]}")
+    #response.basic_auth("celtia_admin01", "UoACSD1164")
+
+>>>>>>> Remove unnecessary dependencies, make double-clicking not reset board.
+  end
+  
+  def update
+    game = Game.find_by_game_token(params[:id])
+    game.update_attributes(game_state: params[:data])
+    render nothing: true
+  end
+  
+  def command
+    require "net/http"
+    require "uri"
+
+    #proxy_addr = 'px.abdn.ac.uk'
+    #proxy_port = 8080
+
+    game = Game.find_by_game_token(params[:id])
+
+    uri = URI.parse("http://celtia-rules-engine.herokuapp.com/")
+
+    http = Net::HTTP.new(uri.host, uri.port)#, proxy_addr, proxy_port)
+
+    response = http.post(uri.request_uri, "message=#{params[:string]}")
+    #response.basic_auth("celtia_admin01", "UoACSD1164")
+
+    print response.body
+
+    render nothing: true
+  end
+
+end

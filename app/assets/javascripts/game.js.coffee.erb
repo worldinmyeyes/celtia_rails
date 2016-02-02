@@ -1,0 +1,24 @@
+# Place all the behaviors and hooks related to the matching controller here.
+# All this logic will automatically be available in application.js.
+# You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
+	
+$ ->
+    #See https://github.com/gazay/gon/wiki/Usage-gon-watch - Sherer
+	gon.watch('turn_counter', interval: 10000, set_turn_counter)
+
+	set_turn_counter = (data) ->
+	
+	
+	player_turn = (data)
+	
+	if player_turn is "player0"
+		$(".player2").html('<%= image_tag("../images/Turn_red.png", :alt => "Celtia", :size => "120x120", :id => "turn_indicator") %>')
+	else if player_turn is "player1"
+		$(".player2").html('<%= image_tag("../images/Turn_white.png", :alt => "Celtia", :size => "120x120", :id => "turn_indicator") %>')
+	else if player_turn is "player2"
+		$(".player2").html('<%= image_tag("../images/Turn_green.png", :alt => "Celtia", :size => "120x120", :id => "turn_indicator") %>')
+	else
+		$(".player2").html('<%= image_tag("../images/Turn_black.png", :alt => "Celtia", :size => "120x120", :id => "turn_indicator") %>')	
+   
+   
+	

@@ -1,0 +1,31 @@
+<body style="background-color: black;">
+<div class ="main2">
+<div class="mainpage">
+
+</div>
+<div class="mainpagetext">
+  <%= link_to(:usage, method: :get) do %>
+    <div class="newbutton">Usage notes</div>
+  <% end %>
+  <br>
+  <%= link_to games_path(num_players: 2), method: :post do %>
+    <div class="newbutton">Start new 2-player game</div>
+  <% end %>
+  <%= link_to games_path(num_players: 3), method: :post do %>
+    <div class="newbutton">Start new 3-player game</div>
+  <% end %>
+  <%= link_to games_path(num_players: 4), method: :post do %>
+    <div class="newbutton">Start new 4-player game</div>
+  <% end %>
+  <%= link_to(games_path, method: :get) do %>
+    <div class="newbutton">View existing games</div>
+  <% end %>        
+
+<p>This game is best played in Chrome/Firefox in Fullscreen Mode</p>
+
+  </div>
+</div>
+</body>
+
+
+

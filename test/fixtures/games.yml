@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  game_state: MyText
+  game_token: MyString
+  last_moved: 1
+  white: MyString
+  black: MyString
+  red: MyString
+  green: MyString
+  forfeit: MyString
+
+two:
+  game_state: MyText
+  game_token: MyString
+  last_moved: 1
+  white: MyString
+  black: MyString
+  red: MyString
+  green: MyString
+  forfeit: MyString

@@ -1,0 +1,33 @@
+// Place all the styles related to the Messages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+ul#chat {
+  text-align: left;
+  list-style: none;
+  padding: 0;
+  height: 300px;
+  border: solid 1px #777;
+  margin: 5px 0;
+  overflow: auto;
+}
+
+ul#chat li {
+  margin: 2px 5px;
+  padding: 0;
+}
+
+ul#chat li .created_at {
+  float: right;
+  color: #777;
+  font-size: 11px;
+  padding-left: 4px;
+  padding-top: 2px;
+}
+
+ul#chat li .username {
+  font-size: 11px;
+  padding-top: 2px;
+}
+
+

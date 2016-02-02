@@ -1,0 +1,15 @@
+<ul id="chat">
+  <%= render @messages %>
+</ul>
+
+
+
+<%= form_for Message.new, remote: true do |f| %>
+  <%= f.text_field :body %>
+  <%= f.hidden_field :player_id, :value => current_player.id %>
+  <%= f.hidden_field :game_id, :value => @game.id %>
+  <%= f.submit "Send" %>
+<% end %>          
+
+
+<%= subscribe_to "/messages/#{@game.id}" %>

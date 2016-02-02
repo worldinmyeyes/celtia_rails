@@ -1,0 +1,63 @@
+source 'https://rubygems.org'
+
+ruby '1.9.3'
+
+gem 'rails'
+gem 'bcrypt-ruby', '3.0.1'
+<<<<<<< HEAD
+gem 'coderay', '1.0.8'
+=======
+gem 'gon', '3.0.5'
+>>>>>>> Remove unnecessary dependencies, make double-clicking not reset board.
+
+# Bundle edge Rails instead:
+# gem 'rails', :git => 'git://github.com/rails/rails.git'
+
+group :production do
+  gem 'pg'
+end
+
+
+group :development, :test do
+#  gem 'rb-fsevent', '0.9.3'
+  gem 'rspec-rails'
+  gem 'guard-rspec'
+  gem 'sqlite3'
+#  gem 'colorize'
+end
+
+group :development do
+  gem 'better_errors'
+end
+
+group :test do
+  gem 'factory_girl_rails'
+end
+
+
+
+# Gems used only for assets and not required
+# in production environments by default.
+
+group :assets do
+  gem 'sass-rails',   '~> 3.2.3'
+  gem 'coffee-rails', '~> 3.2.1'
+
+  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
+  # gem 'therubyracer', :platforms => :ruby
+
+  # Add these gems
+
+  gem 'uglifier', '>= 1.0.3'
+
+end
+
+gem 'jquery-rails'
+gem 'simple_form'
+
+# To use ActiveModel has_secure_password
+# gem 'bcrypt-ruby', '~> 3.0.0'
+
+# To use debugger
+# gem 'debugger'
+

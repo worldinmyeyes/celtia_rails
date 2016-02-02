@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript">
+    window.onload = function() {
+        setMode();
+
+    };
+
+    var game_id = '<%= @game_id %>';
+
+</script>
+<%= stylesheet_link_tag params[:controller] %>
+        <meta name="viewport" content="width=device-width, user-scalable=no"/>
+<%= javascript_include_tag "redips-drag-source.js" %>
+<%= javascript_include_tag "script.js" %>
+</head>
+
+<body>
+
+    <div class="mainboard">
+
+    <div id="drag">
+   <div class="centre" id="drag">
+        <table id="centresquare">
+        <td id ="_16_16" class="drag" style ="background-image: url(<%= asset_path 'spells/cauldron.png' %>); background-size: 40px 40px; background-repeat: no-repeat;"><div></div></td>
+        </table>
+    </div>
+            <div id="right">
+                
+                <table id="chess_board" cellpadding="0" cellspacing="0" style="margin: 0 auto;">
+                    <tr>
+                        <td id="_0_0" style ="background-image: url(<%= asset_path 'spells/cauldron.png' %>); background-size: 40px 40px; background-repeat:no-repeat; background-position:center"><div></div></td>
+                        <td id="_0_1" class="mark spellarea" style="background: #b2936c"><div></div></td>
+                        <td id="_0_2" class="mark spellarea" style="background: #b2936c"><div></div></td>
+                        <td id="_0_3" style ="background-image: url(<%= asset_path 'spells/cauldron.png' %>); background-size: 40px 40px; background-repeat:no-repeat; background-position:center"><div class="drag" id="G7"><%= image_tag("green/Bansidh.png", :alt => "Green Bansidh", :size => "30x30") %></div></td>
+                        <td id="_0_4"><div class="drag" id="G3"><%= image_tag("green/square.png", :alt => "Green Square", :size => "30x30") %></div></td>
+                        <td id="_0_5"><div class="drag" id="G4"><%= image_tag("green/leaping.png", :alt => "Green Leaping", :size => "30x30") %></div></td>
+                        <td id="_0_6"><div class="drag" id="G3"><%= image_tag("green/diagonal.png", :alt => "Green Diagonal", :size => "30x30") %></div></td>
+                        <td id="_0_7"><div class="drag" id="G2"><%= image_tag("green/champion.png", :alt => "Green Champion", :size => "30x30") %></div></td>
+                        <td id="_0_8"><div class="drag" id="G2"><%= image_tag("green/champion.png", :alt => "Green Champion", :size => "30x30") %></div></td>
+                        <td id="_0_9"><div class="drag" id="G3"><%= image_tag("green/diagonal.png", :alt => "Green Diagonal", :size => "30x30") %></div></td>
+                        <td id="_0_10"><div class="drag" id="G4"><%= image_tag("green/leaping.png", :alt => "Green Leaping", :size => "30x30") %></div></td>
+                        <td id="_0_11"><div class="drag" id="G5"><%= image_tag("green/square.png", :alt => "Green Square", :size => "30x30") %></div></td>
+                        <td id="_0_12" style ="background-image: url(<%= asset_path 'spells/cauldron.png' %>); background-size: 40px 40px; background-repeat:no-repeat; background-position:center"><div class="drag" id="G6"><%= image_tag("green/Seannaiche.png", :alt => "Green Seannaiche", :size => "30x30") %></div></td>
+                        <td id="_0_13" class ="spellarea" style ="border-left: 3px outset #B8860B; background: -moz-linear-gradient(right, #b2936c,#DEB887)"><div></div></td>
+                        <td id="_0_14" class="mark spellarea" style="background: #b2936c"><div></div></td>
+                        <td id="_0_15" style ="background-image: url(<%= asset_path 'spells/cauldron.png' %>); background-size: 40px 40px; background-repeat:no-repeat; background-position:center"><div></div></td>
+                    </tr>
+    
+                    <tr>
+                        <td id="_1_0" class="mark spellarea"style="background: #b2936c"><div></div></td>
+                        <td id="_1_1" class="mark spellarea"style="background: #b2936c; background-image: url(<%= asset_path 'tl1.png' %>);"><div></div></td>
+                        <td id="_1_2" class="mark spellarea"style="background: #b2936c; background-image: url(<%= asset_path 'tl2.png' %>);"><div></div></td>
+                        <td id="_1_3" class="mark spellarea" style ="border-right: 3px outset #B8860B; border-top: 3px outset #B8860B; background: #b2936c"><div></div></td>
+                        <td id="_1_4" style="background-image: linear-gradient(left, rgb(0,0,0) 25%, rgb(222,184,135) 38%); background-image: -o-linear-gradient(left, rgb(0,0,0) 5%, rgb(222,184,135) 38%); background-image: -moz-linear-gradient(left, rgb(0,0,0) 5%, rgb(222,184,135) 38%); background-image: -webkit-linear-gradient(left, rgb(0,0,0) 5%, rgb(222,184,135) 38%); background-image: -ms-linear-gradient(left, rgb(0,0,0) 5%, rgb(222,184,135) 38%);"><div><div class="drag" id="G1"><%= image_tag("green/clansman.png", :alt => "Green Clansman", :size => "30x30") %></div></td>
+                        <td id="_1_5"><div class="drag" id="G1"><%= image_tag("green/clansman.png", :alt => "Green Clansman", :size => "30x30") %></div></td>
+                        <td id="_1_6"><div class="drag" id="G1"><%= image_tag("green/clansman.png", :alt => "Green Clansman", :size => "30x30") %></div></td>
+                        <td id="_1_7"><div class="drag" id="G1"><%= image_tag("green/clansman.png", :alt => "Green Clansman", :size => "30x30") %></div></td>
+                        <td id="_1_8"><div class="drag" id="G1"><%= image_tag("green/clansman.png", :alt => "Green Clansman", :size => "30x30") %></div></td>
+                        <td id="_1_9"><div class="drag" id="G1"><%= image_tag("green/clansman.png", :alt => "Green Clansman", :size => "30x30") %></div></td>
+                        <td id="_1_10"><div class="drag" id="G1"><%= image_tag("green/clansman.png", :alt => "Green Clansman", :size => "30x30") %></div></td>
+                        <td id="_1_11" style="background-image: linear-gradient(right, rgb(0,0,0) 25%, rgb(222,184,135) 38%); background-image: -o-linear-gradient(right, rgb(0,0,0) 5%, rgb(222,184,135) 38%); background-image: -moz-linear-gradient(right, rgb(0,0,0) 5%, rgb(222,184,135) 38%); background-image: -webkit-linear-gradient(right, rgb(0,0,0) 5%, rgb(222,184,135) 38%); background-image: -ms-linear-gradient(right, rgb(0,0,0) 5%, rgb(222,184,135) 38%);"><div class="drag" id="G1"><%= image_tag("green/clansman.png", :alt => "Green Clansman", :size => "30x30") %></div></td>
+                        <td id="_1_12" class="mark spellarea" style="border-top: 3px outset #B8860B; border-left: 3px outset #B8860B; background: #b2936c"><div></div></td>
+                        <td id="_1_13" class="mark spellarea"style="background: #b2936c; background-image: url(<%= asset_path 'tr1.png' %>);"><div></div></td>
+                        <td id="_1_14" class="mark spellarea"style="background: #b2936c; background-image: url(<%= asset_path 'tr2.png' %>);"><div></div></td>
+                        <td id="_1_15" class="mark spellarea"style="background: #b2936c"><div></div></td>
+                    </tr>
+    
+                    <tr>
+                        <td id="_2_0" class="mark spellarea"style="background: #b2936c"><div></div></td>
+                        <td id="_2_1" class="mark spellarea"style="background: #b2936c; background-image: url(<%= asset_path 'tl4.png' %>);"><div></div></td>
+                        <td id="_2_2" class="mark spellarea"style="background: #b2936c; background-image: url(<%= asset_path 'tl3.png' %>);"><div></div></td>
+                        <td id="_2_3" class="mark spellarea" style="border-right: 3px outset #B8860B; border-bottom: 3px outset #B8860B; background: #b2936c"><div></div></td>
+                        <td id="_2_4" style="background-image: linear-gradient(left, rgb(0,0,0) 25%, rgb(222,184,135) 38%); background-image: -o-linear-gradient(left, rgb(0,0,0) 5%, rgb(222,184,135) 38%); background-image: -moz-linear-gradient(left, rgb(0,0,0) 5%, rgb(222,184,135) 38%); background-image: -webkit-linear-gradient(left, rgb(0,0,0) 5%, rgb(222,184,135) 38%); background-image: -ms-linear-gradient(left, rgb(0,0,0) 5%, rgb(222,184,135) 38%);"><div></div></td>
+                        <td id="_2_5"><div></div></td>
+                        <td id="_2_6"><div></div></td>
+                        <td id="_2_7"><div></div></td>
+                        <td id="_2_8"><div></div></td>
+                        <td id="_2_9"><div></div></td>
+                        <td id="_2_10"><div></div></td>
+                        <td id="_2_11" style="background-image: linear-gradient(right, rgb(0,0,0) 25%, rgb(222,184,135) 38%); background-image: -o-linear-gradient(right, rgb(0,0,0) 15%, rgb(222,184,135) 38%); background-image: -moz-linear-gradient(right, rgb(0,0,0) 15%, rgb(222,184,135) 38%); background-image: -webkit-linear-gradient(right, rgb(0,0,0) 5%, rgb(222,184,135) 38%); background-image: -ms-linear-gradient(right, rgb(0,0,0) 15%, rgb(222,184,135) 38%);"><div></div></td>
+                        <td id="_2_12" class="mark spellarea" style ="border-left: 3px outset #B8860B; border-bottom: 3px outset #B8860B; background: #b2936c"><div></div></td>
+                        <td id="_2_13" class="mark spellarea" style="background: #b2936c; background-image: url(<%= asset_path 'tr4.png' %>);"><div></div></td>
+                        <td id="_2_14" class="mark spellarea" style="background: #b2936c; background-image: url(<%= asset_path 'tr3.png' %>);"><div></div></td>
+                        <td id="_2_15" class="mark spellarea" style="background: #b2936c"><div></div></td>
+                    </tr>
+
+                    <tr>
+
+                        <td id="_3_0" style ="background-image: url(<%= asset_path 'spells/cauldron.png' %>); background-size: 40px 40px; background-repeat:no-repeat; background-position:center" ><div class="drag" id="W7"><%= image_tag("white/Seannaiche.png", :alt => "White Seannaiche", :size => "30x30") %></div></td>
+                        <td id="_3_1" class="mark spellarea" style ="border-left: 3px outset #B8860B; border-bottom: 3px outset #B8860B; background: #b2936c"><div></div></td>
+                        <td id="_3_2" class="mark spellarea" style ="border-bottom: 3px outset #B8860B; border-right: 3px outset #B8860B; background:#b2936c" ><div></div></td>
+
+                        <td id="_3_3" style ="background-image: url(<%= asset_path 'spells/shield.png' %>); background-size: 40px 40px; background-repeat:no-repeat; background-position:center"><div></div></td>
+                        <td id="_3_4"><div></div></td>
+                        <td id="_3_5"><div></div></td> 
+                        <td id="_3_6"><div></div></td>
+                        <td id="_3_7"><div></div></td>
+                        <td id="_3_8"><div></div></td>
+                        <td id="_3_9"><div></div></td>
+                        <td id="_3_10"><div></div></td>
+                        <td id="_3_11"><div></div></td>
+                        <td id="_3_12" style="background-image: url(<%= asset_path 'spells/shield.png' %>); background-size: 40px 40px; background-repeat:no-repeat; background-position:center"><div></div></td>
+                        <td id="_3_13" class="mark spellarea" style ="border-bottom: 3px outset #B8860B; border-left: 3px outset #B8860B; background: #b2936c"><div></div></td>
+                        <td id="_3_14" class="mark spellarea" style ="border-bottom: 3px outset #B8860B; border-right: 3px outset #B8860B; background: #b2936c"><div></div></td>
+                        <td id="_3_15" style ="background-image: url(<%= asset_path 'spells/cauldron.png' %>); background-size: 40px 40px; background-repeat:no-repeat; background-position:center"><div class="drag" id="B7"><%= image_tag("black/Bansidh.png", :alt => "Black Bansidh", :size => "30x30") %></div></td>
+                    </tr>
+
+                    <tr>
+                        <td id="_4_0"><div class="drag" id="W5"><%= image_tag("white/square.png", :alt => "White Square", :size => "30x30") %></div></td>
+                        <td id="_4_1" style="background-image: linear-gradient(top, rgb(0,0,0) 25%, rgb(222,184,135) 38%); background-image: -o-linear-gradient(top, rgb(0,0,0) 5%, rgb(222,184,135) 38%); background-image: -moz-linear-gradient(top, rgb(0,0,0) 5%, rgb(222,184,135) 38%); background-image: -webkit-linear-gradient(top, rgb(0,0,0) 5%, rgb(222,184,135) 38%); background-image: -ms-linear-gradient(top, rgb(0,0,0) 5%, rgb(222,184,135) 38%);"><div class="drag" id="W1"><%= image_tag("white/clansman.png", :alt => "White Clansman", :size => "30x30") %></div></td>
+                        <td id="_4_2" style="background-image: linear-gradient(top, rgb(0,0,0) 25%, rgb(222,184,135) 38%); background-image: -o-linear-gradient(top, rgb(0,0,0) 5%, rgb(222,184,135) 38%); background-image: -moz-linear-gradient(top, rgb(0,0,0) 5%, rgb(222,184,135) 38%); background-image: -webkit-linear-gradient(top, rgb(0,0,0) 5%, rgb(222,184,135) 38%); background-image: -ms-linear-gradient(top, rgb(0,0,0) 5%, rgb(222,184,135) 38%);"><div></div></td>
+                        <td id="_4_3"><div></div></td>
+                        <td id="_4_4" style ="background-image: url(<%= asset_path 'spells/spellhammer.png' %>); background-size: 40px 40px; background-repeat:no-repeat; background-position:center"><div></div></td>
+                        <td id="_4_5"><div></div></td>
+                        <td id="_4_6"><div></div></td>
+                        <td id="_4_7"><div></div></td>
+                        <td id="_4_8"><div></div></td>
+                        <td id="_4_9"><div></div></td>
+                        <td id="_4_10"><div></div></td>
+                        <td id="_4_11" style ="background-image: url(<%= asset_path 'spells/spellhammer.png' %>); background-size: 40px 40px; background-repeat:no-repeat; background-position:center"><div></div></td>
+                        <td id="_4_12"><div></div></td>
+                        <td id="_4_13" style="background-image: linear-gradient(top, rgb(0,0,0) 25%, rgb(222,184,135) 38%); background-image: -o-linear-gradient(top, rgb(0,0,0) 15%, rgb(222,184,135) 38%); background-image: -moz-linear-gradient(top, rgb(0,0,0) 15%, rgb(222,184,135) 38%); background-image: -webkit-linear-gradient(top, rgb(0,0,0) 5%, rgb(222,184,135) 38%); background-image: -ms-linear-gradient(top, rgb(0,0,0) 15%, rgb(222,184,135) 38%);"><div></div></td>
+                        <td id="_4_14" style="background-image: linear-gradient(top, rgb(0,0,0) 5%, rgb(222,184,135) 38%); background-image: -o-linear-gradient(top, rgb(0,0,0) 5%, rgb(222,184,135) 38%); background-image: -moz-linear-gradient(top, rgb(0,0,0) 5%, rgb(222,184,135) 38%); background-image: -webkit-linear-gradient(top, rgb(0,0,0) 5%, rgb(222,184,135) 38%); background-image: -ms-linear-gradient(top, rgb(0,0,0) 5%, rgb(222,184,135) 38%);"><div class="drag" id="B1"><%= image_tag("black/clansman.png", :alt => "Black Clansman", :size => "30x30") %></div></td>
+                        <td id="_4_15"><div class="drag" id="B5"><%= image_tag("black/square.png", :alt => "Black Square", :size => "30x30") %></div></td>
+                    </tr>
+    
+                    <tr>
+                        <td id="_5_0"><div class="drag" id="W4"><%= image_tag("white/leaping.png", :alt => "White Leaping", :size => "30x30") %></div></td>
+                        <td id="_5_1"><div class="drag" id="W1"><%= image_tag("white/clansman.png", :alt => "White Clansman", :size => "30x30") %></div></td>
+                        <td id="_5_2"><div></div></td>
+                        <td id="_5_3"><div></div></td>
+                        <td id="_5_4"><div></div></td>
+                        <td id="_5_5" style ="background-image: url(<%= asset_path 'spells/flight.png' %>); background-size: 40px 40px; background-repeat:no-repeat; background-position:center"><div></div></td>
+                        <td id="_5_6"style="background-image: url(<%= asset_path 'spells/club.png' %>); background-size: 40px 40px; background-repeat:no-repeat; background-position:center"><div></div></td>
+                        <td id="_5_7"style="background-image: url(<%= asset_path 'spells/shapeshift.png' %>); background-size: 40px 40px; background-repeat:no-repeat; background-position:center"><div></div></td>
+                        <td id="_5_8" style="background-image: url(<%= asset_path 'spells/possession.png' %>); background-size: 40px 40px; background-repeat:no-repeat; background-position:center"><div></div></td>
+                        <td id="_5_9" style="background-image: url(<%= asset_path 'spells/harp.png' %>); background-size: 40px 40px; background-repeat:no-repeat; background-position:center"><div></div></td>
+                        <td id="_5_10" style ="background-image: url(<%= asset_path 'spells/flight.png' %>); background-size: 40px 40px; background-repeat:no-repeat; background-position:center"><div></div></td>
+                        <td id="_5_11"><div></div></td>
+                        <td id="_5_12"><div></div></td>
+                        <td id="_5_13"><div></div></td>
+                        <td id="_5_14"><div class="drag" id="B1"><%= image_tag("black/clansman.png", :alt => "Black Clansman", :size => "30x30") %></div></td>
+                        <td id="_5_15"><div class="drag" id="B4"><%= image_tag("black/leaping.png", :alt => "Black Leaping", :size => "30x30") %></div></td>
+                    </tr>
+
+                    <tr>
+                        <td id="_6_0"><div class="drag" id="W3"><%= image_tag("white/diagonal.png", :alt => "White Diagonal", :size => "30x30") %></div></td>
+                        <td id="_6_1"><div class="drag" id="W1"><%= image_tag("white/clansman.png", :alt => "White Clansman", :size => "30x30") %></div></td>
+                        <td id="_6_2"><div></div></td>
+                        <td id="_6_3"><div></div></td>
+                        <td id="_6_4"><div></div></td>
+                        <td id="_6_5" style="background-image: url(<%= asset_path 'spells/harp.png' %>); background-size: 40px 40px; background-repeat:no-repeat; background-position:center"><div></div></td>
+                        <td id="_6_6" style="background-image: url(<%= asset_path 'spells/mist.png' %>); background-size: 40px 40px; background-repeat:no-repeat; background-position:center"><div></div></td>
+                        <td id="_6_7"style="border-top:3px outset #B8860B; border-left:3px outset #B8860B"><div></div></td>
+                        <td id="_6_8" style="border-top:3px outset #B8860B; border-right:3px outset #B8860B"><div></div></td>
+                        <td id="_6_9" style="background-image: url(<%= asset_path 'spells/mist.png' %>); background-size: 40px 40px; background-repeat:no-repeat; background-position:center"><div></div></td>
+                        <td id="_6_10" style="background-image: url(<%= asset_path 'spells/club.png' %>); background-size: 40px 40px; background-repeat:no-repeat; background-position:center"><div></div></td>
+                        <td id="_6_11"><div></div></td>
+                        <td id="_6_12"><div></div></td>
+                        <td id="_6_13"><div></div></td>
+                        <td id="_6_14"><div class="drag" id="B1"><%= image_tag("black/clansman.png", :alt => "Black Clansman", :size => "30x30") %></div></td>
+                        <td id="_6_15"><div class="drag" id="B3"><%= image_tag("black/diagonal.png", :alt => "Black Diagonal", :size => "30x30") %></div></td>
+                    </tr>
+
+                    <tr>
+                        <td id="_7_0"><div class="drag" id="W2"><%= image_tag("white/champion.png", :alt => "White Champion", :size => "30x30") %></div></td>
+                        <td id="_7_1"><div class="drag" id="W1"><%= image_tag("white/clansman.png", :alt => "White Clansman", :size => "30x30") %></div></td>
+                        <td id="_7_2"><div></div></td>
+                        <td id="_7_3"><div></div></td>
+                        <td id="_7_4"><div></div></td>
+                        <td id="_7_5" style="background-image: url(<%= asset_path 'spells/possession.png' %>); background-size: 40px 40px; background-repeat:no-repeat; background-position:center"><div></div></td>
+                        <td id="_7_6" style="border-top:3px outset #B8860B; border-left:3px outset #B8860B;"><div></div></td>
+                        <td id="_7_7" style="border-left: 3px outset #B8860B; border-top: 3px outset #B8860B; background-image: url(<%= asset_path 'centertl.png' %>); background-size: 40px 40px; background-repeat:no-repeat; background-position:center"><div></div></td>
+                        <td id="_7_8" style="border-right: 3px outset #B8860B; border-top: 3px outset #B8860B; background-image: url(<%= asset_path 'centertr.png' %>); background-size: 40px 40px; background-repeat:no-repeat; background-position:center"><div></div></td>
+                        <td id="_7_9" style="border-top:3px outset #B8860B; border-right:3px outset #B8860B;"><div></div></td>
+                        <td id="_7_10" style="background-image: url(<%= asset_path 'spells/shapeshift.png' %>); background-size: 40px 40px; background-repeat:no-repeat; background-position:center"><div></div></td>
+                        <td id="_7_11"><div></div></td>
+                        <td id="_7_12"><div></div></td>
+                        <td id="_7_13"><div></div></td>
+                        <td id="_7_14"><div class="drag" id="B1"><%= image_tag("black/clansman.png", :alt => "Black Clansman", :size => "30x30") %></div></td>
+                       <td id="_7_15"><div class="drag" id="B2"><%= image_tag("black/champion.png", :alt => "Black Champion", :size => "30x30") %></div></td>
+                    </tr>
+    
+                    <tr>
+                        <td id="_8_0"><div class="drag" id="W2"><%= image_tag("white/champion.png", :alt => "White Champion", :size => "30x30") %></div></td>
+                        <td id="_8_1"><div class="drag" id="W1"><%= image_tag("white/clansman.png", :alt => "White Clansman", :size => "30x30") %></div></td>
+                        <td id="_8_2"><div></div></td>
+                        <td id="_8_3"><div></div></td>
+                        <td id="_8_4"><div></div></td>
+                        <td id="_8_5" style="background-image: url(<%= asset_path 'spells/shapeshift.png' %>); background-size: 40px 40px; background-repeat:no-repeat; background-position:center"><div></div></td>
+                        <td id="_8_6" style="border-bottom:3px outset #B8860B; border-left:3px outset #B8860B"><div></div></td>
+                        <td id="_8_7" style ="border-left: 3px outset #B8860B; border-bottom: 3px outset #B8860B; background-image: url(<%= asset_path 'centerbl.png' %>); background-size: 40px 40px; background-repeat:no-repeat; background-position:center"><div></div></td>
+                        <td id="_8_8" style ="border-right:3px outset #B8860B; border-bottom: 3px outset #B8860B; background-image: url(<%= asset_path 'centerbr.png' %>); background-size: 40px 40px; background-repeat:no-repeat; background-position:center"><div></div></td>
+                        <td id="_8_9" style="border-bottom:3px outset #B8860B; border-right:3px outset #B8860B;"><div></div></td>
+                        <td id="_8_10" style="background-image: url(<%= asset_path 'spells/possession.png' %>); background-size: 40px 40px; background-repeat:no-repeat; background-position:center"><div></div></td>
+                        <td id="_8_11"><div></div></td>
+                        <td id="_8_12"><div></div></td>
+                        <td id="_8_13"><div></div></td>
+                        <td id="_8_14"><div class="drag" id="B1"><%= image_tag("black/clansman.png", :alt => "Black Clansman", :size => "30x30") %></div></td>
+                        <td id="_8_15"><div class="drag" id="B2"><%= image_tag("black/champion.png", :alt => "Black Champion", :size => "30x30") %></div></td>
+                    </tr>
+
+                    <tr>
+                        <td id="_9_0"><div class="drag" id="W3"><%= image_tag("white/diagonal.png", :alt => "White Diagonal", :size => "30x30") %></div></td>
+                        <td id="_9_1"><div class="drag" id="W1"><%= image_tag("white/clansman.png", :alt => "White Clansman", :size => "30x30") %></div></td>
+                        <td id="_9_2"><div></div></td>
+                        <td id="_9_3"><div></div></td>
+                        <td id="_9_4"><div></div></td>
+                        <td id="_9_5" style="background-image: url(<%= asset_path 'spells/club.png' %>); background-size: 40px 40px; background-repeat:no-repeat; background-position:center"><div></div></td>
+                        <td id="_9_6" style="background-image: url(<%= asset_path 'spells/mist.png' %>); background-size: 40px 40px; background-repeat:no-repeat; background-position:center"><div></div></td>
+                        <td id="_9_7" style="border-bottom:3px outset #B8860B; border-left:3px outset #B8860B;" ><div></div></td>
+                        <td id="_9_8" style="border-bottom:3px outset #B8860B; border-right:3px outset #B8860B;"><div></div></td>
+                        <td id="_9_9" style="background-image: url(<%= asset_path 'spells/mist.png' %>); background-size: 40px 40px; background-repeat:no-repeat; background-position:center"><div></div></td>
+                        <td id="_9_10" style="background-image: url(<%= asset_path 'spells/harp.png' %>); background-size: 40px 40px; background-repeat:no-repeat; background-position:center" ><div></div></td>
+                        <td id="_9_11"><div></div></td>
+                        <td id="_9_12"><div></div></td>
+                        <td id="_9_13"><div></div></td>
+                        <td id="_9_14"><div class="drag" id="B1"><%= image_tag("black/clansman.png", :alt => "Black Clansman", :size => "30x30") %></div></td>
+                        <td id="_9_15"><div class="drag" id="B3"><%= image_tag("black/diagonal.png", :alt => "Black Diagonal", :size => "30x30") %></div></td>
+                    </tr>
+                
+                    <tr>
+                        <td id="_10_0"><div class="drag" id="W4"><%= image_tag("white/leaping.png", :alt => "White Leaping", :size => "30x30") %></div></td>
+                        <td id="_10_1"><div class="drag" id="W1"><%= image_tag("white/clansman.png", :alt => "White Clansman", :size => "30x30") %></div></td>
+                        <td id="_10_2"><div></div></td>
+                        <td id="_10_3"><div></div></td>
+                        <td id="_10_4"><div></div></td>
+                        <td id="_10_5" style ="background-image: url(<%= asset_path 'spells/flight.png' %>); background-size: 40px 40px; background-repeat:no-repeat; background-position:center"><div></div></td>
+                        <td id="_10_6" style="background-image: url(<%= asset_path 'spells/harp.png' %>); background-size: 40px 40px; background-repeat:no-repeat; background-position:center"><div></div></td>
+                        <td id="_10_7" style="background-image: url(<%= asset_path 'spells/possession.png' %>); background-size: 40px 40px; background-repeat:no-repeat; background-position:center"><div></div></td>
+                        <td id="_10_8" style="background-image: url(<%= asset_path 'spells/shapeshift.png' %>); background-size: 40px 40px; background-repeat:no-repeat; background-position:center"><div></div></td>
+                        <td id="_10_9" style="background-image: url(<%= asset_path 'spells/club.png' %>); background-size: 40px 40px; background-repeat:no-repeat; background-position:center"><div></div></td>
+                        <td id="_10_10" style ="background-image: url(<%= asset_path 'spells/flight.png' %>); background-size: 40px 40px; background-repeat:no-repeat; background-position:center"><div></div></td>
+                        <td id="_10_11"><div></div></td>
+                        <td id="_10_12"><div></div></td>
+                        <td id="_10_13"><div></div></td>
+                        <td id="_10_14"><div class="drag" id="B1"><%= image_tag("black/clansman.png", :alt => "Black Clansman", :size => "30x30") %></div></td>
+                        <td id="_10_15"><div class="drag" id="B4"><%= image_tag("black/leaping.png", :alt => "Black Leaping", :size => "30x30") %></div></td>
+                    </tr>
+
+                    <tr>
+                        <td id="_11_0"><div class="drag" id="W5"><%= image_tag("white/square.png", :alt => "White Square", :size => "30x30") %></div></td>
+                        <td id="_11_1" style="background-image: linear-gradient(bottom, rgb(0,0,0) 25%, rgb(222,184,135) 38%); background-image: -o-linear-gradient(bottom, rgb(0,0,0) 5%, rgb(222,184,135) 38%); background-image: -moz-linear-gradient(bottom, rgb(0,0,0) 5%, rgb(222,184,135) 38%); background-image: -webkit-linear-gradient(bottom, rgb(0,0,0) 5%, rgb(222,184,135) 38%); background-image: -ms-linear-gradient(bottom, rgb(0,0,0) 5%, rgb(222,184,135) 38%);"><div class="drag" id="W1"><%= image_tag("white/clansman.png", :alt => "White Clansman", :size => "30x30") %></div></td>
+                        <td id="_11_2" style="background-image: linear-gradient(bottom, rgb(0,0,0) 25%, rgb(222,184,135) 38%); background-image: -o-linear-gradient(bottom, rgb(0,0,0) 5%, rgb(222,184,135) 38%); background-image: -moz-linear-gradient(bottom, rgb(0,0,0) 5%, rgb(222,184,135) 38%); background-image: -webkit-linear-gradient(bottom, rgb(0,0,0) 5%, rgb(222,184,135) 38%); background-image: -ms-linear-gradient(bottom, rgb(0,0,0) 5%, rgb(222,184,135) 38%);"><div></div></td>
+                        <td id="_11_3"><div></div></td>
+                        <td id="_11_4" style ="background-image: url(<%= asset_path 'spells/spellhammer.png' %>); background-size: 40px 40px; background-repeat:no-repeat; background-position:center"><div></div></td>
+                        <td id="_11_5"><div></div></td>
+                        <td id="_11_6"><div></div></td>
+                        <td id="_11_7"><div></div></td>
+                        <td id="_11_8"><div></div></td>
+                        <td id="_11_9"><div></div></td>
+                        <td id="_11_10"><div></div></td>
+                        <td id="_11_11" style ="background-image: url(<%= asset_path 'spells/spellhammer.png' %>); background-size: 40px 40px; background-repeat:no-repeat; background-position:center"><div></div></td>
+                        <td id="_11_12"><div></div></td>
+                        <td id="_11_13" style="background-image: linear-gradient(bottom, rgb(0,0,0) 25%, rgb(222,184,135) 38%); background-image: -o-linear-gradient(bottom, rgb(0,0,0) 5%, rgb(222,184,135) 38%); background-image: -moz-linear-gradient(bottom, rgb(0,0,0) 5%, rgb(222,184,135) 38%); background-image: -webkit-linear-gradient(bottom, rgb(0,0,0) 5%, rgb(222,184,135) 38%); background-image: -ms-linear-gradient(bottom, rgb(0,0,0) 5%, rgb(222,184,135) 38%);"><div></div></td>
+                        <td id="_11_14" style="background-image: linear-gradient(bottom, rgb(0,0,0) 25%, rgb(222,184,135) 38%); background-image: -o-linear-gradient(bottom, rgb(0,0,0) 5%, rgb(222,184,135) 38%); background-image: -moz-linear-gradient(bottom, rgb(0,0,0) 5%, rgb(222,184,135) 38%); background-image: -webkit-linear-gradient(bottom, rgb(0,0,0) 5%, rgb(222,184,135) 38%); background-image: -ms-linear-gradient(bottom, rgb(0,0,0) 5%, rgb(222,184,135) 38%);"><div class="drag" id="B1"><%= image_tag("black/clansman.png", :alt => "Black Clansman", :size => "30x30") %></div></td>
+                        <td id="_11_15"><div class="drag" id="B5"><%= image_tag("black/square.png", :alt => "Black Square", :size => "30x30") %></div></td>
+                    </tr>
+
+                    <tr>
+                        <td id="_12_0" style ="background-image: url(<%= asset_path 'spells/cauldron.png' %>); background-size: 40px 40px; background-repeat:no-repeat; background-position:center"><div class="drag" id="W7"><%= image_tag("white/Bansidh.png", :alt => "White Bansidh", :size => "30x30") %></div></td>
+                        <td id="_12_1" class="mark spellarea" style ="border-left: 3px outset #B8860B; border-top: 3px outset #B8860B; background: #b2936c"><div></div></td>
+                        <td id="_12_2" class="mark spellarea" style ="border-top: 3px outset #B8860B; border-right: 3px outset #B8860B; background: #b2936c"><div></div></td>
+                        <td id="_12_3" style ="background-image: url(<%= asset_path 'spells/shield.png' %>); background-size: 40px 40px; background-repeat:no-repeat; background-position:center"><div></div></td>
+                        <td id="_12_4"><div></div></td>
+                        <td id="_12_5"><div></div></td>
+                        <td id="_12_6"><div></div></td>
+                        <td id="_12_7"><div></div></td>
+                        <td id="_12_8"><div></div></td>
+                        <td id="_12_9"><div></div></td>
+                        <td id="_12_10"><div></div></td>
+                        <td id="_12_11"><div></div></td>
+                        <td id="_12_12" style ="background-image: url(<%= asset_path 'spells/shield.png' %>); background-size: 40px 40px; background-repeat:no-repeat; background-position:center"><div></div></td>
+                        <td id="_12_13" class="mark spellarea" style ="border-top: 3px outset #B8860B; border-left: 3px outset #B8860B; background: #b2936c"><div></div></td>
+                        <td id="_12_14" class="mark spellarea" style ="border-top: 3px outset #B8860B; border-right: 3px outset #B8860B; background: #b2936c"><div></div></td>
+                        <td id="_12_15" style ="background-image: url(<%= asset_path 'spells/cauldron.png' %>); background-size: 40px 40px; background-repeat:no-repeat; background-position:center"><div class="drag" id="B6"><%= image_tag("black/Seannaiche.png", :alt => "Black Seannaiche", :size => "30x30") %></div></td>
+                    </tr>
+
+                    <tr>
+                        <td id="_13_0" class="mark spellarea" style="background: #b2936c"><div></div></td>
+                        <td id="_13_1" class="mark spellarea" style="background: #b2936c; background-image: url(<%= asset_path 'bl1.png' %>);"><div></div></td>
+                        <td id="_13_2" class="mark spellarea" style="background: #b2936c; background-image: url(<%= asset_path 'bl2.png' %>);"><div></div></td>
+                        <td id="_13_3" class="mark spellarea" style ="border-right: 3px outset #B8860B; border-top: 3px outset #B8860B; background:#b2936c"><div></div></td>
+                        <td id="_13_4" style="background-image: linear-gradient(left, rgb(0,0,0) 25%, rgb(222,184,135) 38%); background-image: -o-linear-gradient(left, rgb(0,0,0) 5%, rgb(222,184,135) 38%); background-image: -moz-linear-gradient(left, rgb(0,0,0) 5%, rgb(222,184,135) 38%); background-image: -webkit-linear-gradient(left, rgb(0,0,0) 5%, rgb(222,184,135) 38%); background-image: -ms-linear-gradient(left, rgb(0,0,0) 5%, rgb(222,184,135) 38%);"><div></div></td>
+                        <td id="_13_5"><div></div></td>
+                        <td id="_13_6"><div></div></td>
+                        <td id="_13_7"><div></div></td>
+                        <td id="_13_8"><div></div></td>
+                        <td id="_13_9"><div></div></td>
+                        <td id="_13_10"><div></div></td>
+                        <td id="_13_11" style="background-image: linear-gradient(right, rgb(0,0,0) 25%, rgb(222,184,135) 38%); background-image: -o-linear-gradient(right, rgb(0,0,0) 5%, rgb(222,184,135) 38%); background-image: -moz-linear-gradient(right, rgb(0,0,0) 5%, rgb(222,184,135) 38%); background-image: -webkit-linear-gradient(right, rgb(0,0,0) 5%, rgb(222,184,135) 38%); background-image: -ms-linear-gradient(right, rgb(0,0,0) 5%, rgb(222,184,135) 38%);"><div></div></td>
+                        <td id="_13_12" class="mark spellarea" style ="border-left: 3px outset #B8860B; border-top: 3px outset #B8860B; background:#b2936c"><div></div></td>
+                        <td id="_13_13" class="mark spellarea" style="background: #b2936c; background-image: url(<%= asset_path 'br1.png' %>);"><div></div></td>
+                        <td id="_13_14" class="mark spellarea" style="background: #b2936c; background-image: url(<%= asset_path 'br2.png' %>);"><div></div></td>
+                        <td id="_13_15" class= "spellarea" style ="border-top: 3px outset #B8860B; background: -moz-linear-gradient(bottom, #b2936c,#DEB887)"><div></div></td>
+                    </tr>
+
+                    <tr>
+                        <td id="_14_0" class="mark spellarea" style="background: #b2936c; border-style:none;"><div></div></td>
+                        <td id="_14_1" class="mark spellarea" style="background: #b2936c; border-style:none; background-image: url(<%= asset_path 'bl4.png' %>);"><div></div></td>
+                        <td id="_14_2" class="mark spellarea" style="background: #b2936c; background-image: url(<%= asset_path 'bl3.png' %>);"><div></div></td>
+                        <td id="_14_3" class="mark spellarea" style ="border-right: 3px outset #B8860B; border-bottom: 3px outset #B8860B; background: #b2936c"><div></div></td>
+                        <td id="_14_4" style="background-image: linear-gradient(left, rgb(0,0,0) 25%, rgb(222,184,135) 38%); background-image: -o-linear-gradient(left, rgb(0,0,0) 5%, rgb(222,184,135) 38%); background-image: -moz-linear-gradient(left, rgb(0,0,0) 5%, rgb(222,184,135) 38%); background-image: -webkit-linear-gradient(left, rgb(0,0,0) 5%, rgb(222,184,135) 38%); background-image: -ms-linear-gradient(left, rgb(0,0,0) 5%, rgb(222,184,135) 38%);"><div class="drag" id="R1"><%= image_tag("red/clansman.png", :alt => "Red Clansman", :size => "30x30") %></div></td>
+                        <td id="_14_5"><div class="drag" id="R1"><%= image_tag("red/clansman.png", :alt => "Red Clansman", :size => "30x30") %></div></td>
+                        <td id="_14_6"><div class="drag" id="R1"><%= image_tag("red/clansman.png", :alt => "Red Clansman", :size => "30x30") %></div></td>
+                        <td id="_14_7"><div class="drag" id="R1"><%= image_tag("red/clansman.png", :alt => "Red Clansman", :size => "30x30") %></div></td>
+                        <td id="_14_8"><div class="drag" id="R1"><%= image_tag("red/clansman.png", :alt => "Red Clansman", :size => "30x30") %></div></td>
+                        <td id="_14_9"><div class="drag" id="R1"><%= image_tag("red/clansman.png", :alt => "Red Clansman", :size => "30x30") %></div></td>
+                        <td id="_14_10"><div class="drag" id="R1"><%= image_tag("red/clansman.png", :alt => "Red Clansman", :size => "30x30") %></div></td>
+                        <td id="_14_11" style="background-image: linear-gradient(right, rgb(0,0,0) 25%, rgb(222,184,135) 38%); background-image: -o-linear-gradient(right, rgb(0,0,0) 5%, rgb(222,184,135) 38%); background-image: -moz-linear-gradient(right, rgb(0,0,0) 5%, rgb(222,184,135) 38%); background-image: -webkit-linear-gradient(right, rgb(0,0,0) 5%, rgb(222,184,135) 38%); background-image: -ms-linear-gradient(right, rgb(0,0,0) 5%, rgb(222,184,135) 38%);"><div><div class="drag" id="R1"><%= image_tag("red/clansman.png", :alt => "Red Clansman", :size => "30x30") %></div></td>
+                         <td id="_14_12" class="mark spellarea" style ="border-left: 3px outset #B8860B; border-bottom: 3px outset #B8860B; background: #b2936c"><div></div></td>
+                        <td id="_14_13" class="mark spellarea" style="background: #b2936c; background-image: url(<%= asset_path 'br4.png' %>);"><div></div></td>
+                        <td id="_14_14" class="mark spellarea" style="background: #b2936c; background-image: url(<%= asset_path 'br3.png' %>);"><div></div></td>
+                        <td id="_14_15" class="mark spellarea" style="background: #b2936c"><div></div></td>
+                    </tr>
+    
+                    <tr>
+                        <td id="_15_0" style ="background-image: url(<%= asset_path 'spells/cauldron.png' %>); background-size: 40px 40px; background-repeat:no-repeat; background-position:center"><div></div></td>
+                        <td id="_15_1" class="mark spellarea" style="background: #b2936c"><div></div></td>
+                        <td id="_15_2" class= "spellarea" style ="border-right: 3px outset #B8860B; background: -moz-linear-gradient(left, #b2936c,#DEB887)"><div></div></td>
+                        <td id="_15_3" style ="background-image: url(<%= asset_path 'spells/cauldron.png' %>); background-size: 40px 40px; background-repeat:no-repeat; background-position:center"><div class="drag" id="R6"><%= image_tag("red/Seannaiche.png", :alt => "Red Seannaiche", :size => "30x30") %></div></td>
+                        <td id="_15_4"><div class="drag" id="R5"><%= image_tag("red/square.png", :alt => "Red Square", :size => "30x30") %></div></td>
+                        <td id="_15_5"><div class="drag" id="R4"><%= image_tag("red/leaping.png", :alt => "Red Leaping", :size => "30x30") %></div></td>
+                        <td id="_15_6"><div class="drag" id="R3"><%= image_tag("red/diagonal.png", :alt => "Red Diagonal", :size => "30x30") %></div></td>
+                        <td id="_15_7"><div class="drag" id="R2"><%= image_tag("red/champion.png", :alt => "Red Champion", :size => "30x30") %></div></td>
+                        <td id="_15_8"><div class="drag" id="R2"><%= image_tag("red/champion.png", :alt => "Red Champion", :size => "30x30") %></div></td>
+                        <td id="_15_9"><div class="drag" id="R3"><%= image_tag("red/diagonal.png", :alt => "Red Diagonal", :size => "30x30") %></div></td>
+                        <td id="_15_10"><div class="drag" id="R4"><%= image_tag("red/leaping.png", :alt => "Red Leaping", :size => "30x30") %></div></td>
+                        <td id="_15_11"><div class="drag" id="R5"><%= image_tag("red/square.png", :alt => "Red Square", :size => "30x30") %></div></td>
+                        <td id="_15_12" style ="background-image: url(<%= asset_path 'spells/cauldron.png' %>); background-size: 40px 40px; background-repeat:no-repeat; background-position:center"><div class="drag" id="R7"><%= image_tag("red/Bansidh.png", :alt => "Red Bansidh", :size => "30x30") %></div></td>
+                        <td id="_15_13" class="mark spellarea" style="background: #b2936c"><div></div></td>
+                        <td id="_15_14" class="mark spellarea" style="background: #b2936c"><div></div></td>
+                        <td id="_15_15" style ="background-image: url(<%= asset_path 'spells/cauldron.png' %>); background-size: 40px 40px; background-repeat:no-repeat; background-position:center"><div></div></td>
+                    </tr>
+
+                </table>
+
+            </div>
+
+            <div id="left">
+            </div>
+        
+        </div>
+        
+    </div>
+
+</body>
+</html>

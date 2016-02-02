@@ -1,0 +1,25 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: celtia_development
+  pool: 5
+  username: graham
+  password:
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: celtia_test
+  pool: 5
+  username: graham
+  password:
+
+production:
+  adapter: postgresql
+  host:  ec2-54-221-199-33.compute-1.amazonaws.com
+  database: d7e56fnilvh836
+  username: gavdowsshtaclq
+  password: eBsyytYL8icRF24GnNqD6mi6vH
+  port: 5432
+  pool: 5
+  timeout: 5000
